@@ -57,6 +57,7 @@ dependencies:
   figma_squircle: ^0.6.3
   encrypt: ^5.0.3
   intl: ^0.20.2
+  sqflite: ^2.3.0
   cached_network_image: ^3.4.1
   flutter_sound: ^9.27.0
   video_player: any
