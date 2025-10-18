@@ -1,0 +1,39 @@
+workflows:
+  chatzy-build:
+    name: Chatzy Android Build
+    environment:
+      flutter: "3.29.0"
+      xcode: latest
+    
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: '*'
+          include: true
+    
+    scripts:
+      - name: Verify Flutter Version
+        script: |
+          echo "=== Flutter Version ==="
+          flutter --version
+          echo "=== Dart Version ==="  
+          dart --version
+          
+      - name: Get Dependencies
+        script: |
+          flutter pub get
+          
+      - name: Build APK & AAB
+        script: |
+          flutter build apk --release
+          flutter build appbundle --release
+    
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
+      - build/app/outputs/bundle/release/app-release.aab
+    
+    publishing:
+      email:
+        recipients:
+          - your-email@gmail.com
