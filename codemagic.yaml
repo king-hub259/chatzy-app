@@ -2,7 +2,7 @@ workflows:
   chatzy-build:
     name: Chatzy Android Build
     environment:
-      flutter: "3.32.0"
+      flutter: "3.35.0"
       xcode: latest
     
     triggering:
